@@ -10,7 +10,7 @@ export const Route = createFileRoute("/accounts")({
   component: Accounts,
   head: () => ({
     meta: [
-      { title: "Account Governance — CloudOps" },
+      { title: "Account Governance — OmniOps" },
       { name: "description", content: "Govern multiple cloud accounts across AWS, Azure, GCP, VMware and OCI." },
     ],
   }),
@@ -48,7 +48,7 @@ function Accounts() {
             <div className="grid place-items-center size-9 rounded-xl bg-gradient-to-br from-[oklch(0.62_0.22_255)] to-[oklch(0.78_0.16_200)] shadow-lg shadow-[oklch(0.55_0.22_250/0.4)]">
               <Cloud className="size-5 text-white" />
             </div>
-            <span className="font-semibold tracking-tight">CloudOps</span>
+            <span className="font-semibold tracking-tight">OmniOps</span>
           </Link>
 
           <nav className="flex-1 px-3 py-5 text-sm space-y-6 overflow-y-auto">

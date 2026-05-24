@@ -28,13 +28,13 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "CloudOps — One platform for all your cloud ops" },
+      { title: "OmniOps — One platform for all your cloud ops" },
       {
         name: "description",
         content:
-          "Govern, scan, and monitor AWS and Azure from a single unified dashboard. CloudOps unifies CloudOps, FinOps, SecOps, AIOps, Tickets and Governance.",
+          "Govern, scan, and monitor AWS and Azure from a single unified dashboard. OmniOps unifies CloudOps, FinOps, SecOps, AIOps, Tickets and Governance.",
       },
-      { property: "og:title", content: "CloudOps — Multi-cloud operations platform" },
+      { property: "og:title", content: "OmniOps — Multi-cloud operations platform" },
       {
         property: "og:description",
         content: "Govern, scan and monitor AWS & Azure from one unified dashboard.",
@@ -102,7 +102,7 @@ function Navbar() {
             <Cloud className="h-4 w-4 text-primary-foreground" />
             <span className="absolute inset-0 rounded-lg ring-1 ring-white/20" />
           </span>
-          <span className="font-semibold tracking-tight text-foreground">CloudOps</span>
+          <span className="font-semibold tracking-tight text-foreground">OmniOps</span>
           <span className="chip ml-1 hidden sm:inline-flex !py-0.5 !text-[10px]">
             <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse-dot" />
             v4.2 live
@@ -603,11 +603,11 @@ function Features() {
     {
       icon: Cloud,
       emoji: "☁️",
-      title: "CloudOps",
+      title: "OmniOps",
       desc: "Unified visibility across AWS and Azure with real-time inventory and topology mapping.",
       tone: "brand",
       span: "md:col-span-2",
-      visual: <CloudOpsVisual />,
+      visual: <OmniOpsVisual />,
     },
     {
       icon: Wallet,
@@ -715,7 +715,7 @@ function Features() {
   );
 }
 
-function CloudOpsVisual() {
+function OmniOpsVisual() {
   return (
     <div className="relative h-40 rounded-xl border border-hairline bg-surface-2/40 overflow-hidden">
       <svg viewBox="0 0 400 160" className="w-full h-full">
@@ -888,7 +888,7 @@ function HowItWorks() {
       n: "02",
       icon: Radar,
       title: "Auto-discover everything",
-      desc: "CloudOps inventories every resource, policy and spend signal automatically.",
+      desc: "OmniOps inventories every resource, policy and spend signal automatically.",
     },
     {
       n: "03",
@@ -942,7 +942,7 @@ function Testimonials() {
   const items = [
     {
       quote:
-        "CloudOps replaced three separate tools and cut our cloud spend by 32% in the first quarter. The ROI was instant.",
+        "OmniOps replaced three separate tools and cut our cloud spend by 32% in the first quarter. The ROI was instant.",
       name: "Sarah Chen",
       role: "VP Engineering",
       company: "Northwind",
@@ -1159,7 +1159,7 @@ function CTA() {
               <span className="text-gradient">cloud ops</span>?
             </h2>
             <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-              Join thousands of teams running AWS and Azure on CloudOps.
+              Join thousands of teams running AWS and Azure on OmniOps.
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
               <Link to="/get-started" className="btn-primary">
@@ -1192,7 +1192,7 @@ function Footer() {
               <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand to-brand-cyan">
                 <Cloud className="h-4 w-4 text-primary-foreground" />
               </span>
-              <span className="font-semibold tracking-tight text-foreground">CloudOps</span>
+              <span className="font-semibold tracking-tight text-foreground">OmniOps</span>
             </a>
             <p className="mt-4 text-sm text-muted-foreground max-w-xs">
               The unified control plane for AWS and Azure operations.
@@ -1219,7 +1219,7 @@ function Footer() {
           ))}
         </div>
         <div className="mt-12 pt-6 border-t border-border/40 flex flex-col md:flex-row justify-between gap-4 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} CloudOps Inc. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} OmniOps Inc. All rights reserved.</div>
           <div className="flex items-center gap-5">
             <span className="flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse-dot" /> All
