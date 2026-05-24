@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   Cloud,
@@ -120,15 +120,15 @@ function Navbar() {
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <a
-            href="#"
+          <Link
+            to="/sign-in"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             Sign In
-          </a>
-          <a href="#" className="btn-primary !py-2 !px-4">
+          </Link>
+          <Link to="/get-started" className="btn-primary !py-2 !px-4">
             Get Started <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+          </Link>
         </div>
         <button
           className="md:hidden text-foreground"
@@ -150,9 +150,9 @@ function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href="#" className="btn-primary w-full justify-center">
+          <Link to="/get-started" className="btn-primary w-full justify-center">
             Get Started
-          </a>
+          </Link>
         </div>
       )}
     </header>
@@ -518,12 +518,12 @@ function Hero() {
           className="animate-fade-up mt-9 flex flex-wrap items-center justify-center gap-3"
           style={{ animationDelay: "0.3s" }}
         >
-          <a href="#" className="btn-primary">
+          <Link to="/get-started" className="btn-primary">
             Get Started Free <ArrowRight className="h-4 w-4" />
-          </a>
-          <a href="#" className="btn-ghost">
+          </Link>
+          <Link to="/sign-in" className="btn-ghost">
             Sign In
-          </a>
+          </Link>
         </div>
         <div
           className="animate-fade-up mt-5 flex items-center justify-center gap-5 text-[11px] text-muted-foreground"
@@ -1162,12 +1162,12 @@ function CTA() {
               Join thousands of teams running AWS and Azure on CloudOps.
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
-              <a href="#" className="btn-primary">
+              <Link to="/get-started" className="btn-primary">
                 Get Started Free <ArrowRight className="h-4 w-4" />
-              </a>
-              <a href="#" className="btn-ghost">
+              </Link>
+              <Link to="/sign-in" className="btn-ghost">
                 Talk to Sales
-              </a>
+              </Link>
             </div>
           </div>
         </div>
