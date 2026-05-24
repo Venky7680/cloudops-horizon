@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Govern, scan, and monitor AWS and Azure from a single unified dashboard. OmniOps unifies OmniOps, FinOps, SecOps, AIOps, Tickets and Governance.",
+          "Govern, scan, and monitor AWS and Azure from a single unified dashboard. OmniOps unifies CloudOps, FinOps, SecOps, AIOps, Tickets and Governance.",
       },
       { property: "og:title", content: "OmniOps — Multi-cloud operations platform" },
       {
