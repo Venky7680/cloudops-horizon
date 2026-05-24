@@ -6,8 +6,8 @@ export const Route = createFileRoute("/sign-in")({
   component: SignIn,
   head: () => ({
     meta: [
-      { title: "Sign in — CloudOps" },
-      { name: "description", content: "Sign in to your CloudOps multi-cloud operations dashboard." },
+      { title: "Sign in — OmniOps" },
+      { name: "description", content: "Sign in to your OmniOps multi-cloud operations dashboard." },
     ],
   }),
 });
@@ -25,7 +25,7 @@ function SignIn() {
           <div className="grid place-items-center size-9 rounded-xl glass">
             <Cloud className="size-5 text-[var(--brand-cyan)]" />
           </div>
-          <span className="font-semibold tracking-tight">CloudOps</span>
+          <span className="font-semibold tracking-tight">OmniOps</span>
         </Link>
         <Link to="/get-started" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
           New here? <span className="text-[var(--brand-cyan)]">Create account →</span>
@@ -36,7 +36,7 @@ function SignIn() {
         {/* Left: Form */}
         <div className="panel rounded-3xl p-8 lg:p-10">
           <div className="chip mb-5"><Sparkles className="size-3" /> Welcome back</div>
-          <h1 className="text-3xl lg:text-4xl font-semibold tracking-tight">Sign in to <span className="text-gradient">CloudOps</span></h1>
+          <h1 className="text-3xl lg:text-4xl font-semibold tracking-tight">Sign in to <span className="text-gradient">OmniOps</span></h1>
           <p className="mt-2 text-sm text-muted-foreground">Govern, scan, and monitor AWS & Azure from a single pane.</p>
 
           <div className="mt-7 grid grid-cols-2 gap-3">
@@ -108,7 +108,7 @@ function SignIn() {
             </div>
           </div>
           <div className="panel rounded-3xl p-6">
-            <div className="text-xs text-muted-foreground">"CloudOps cut our cloud bill 31% in the first quarter."</div>
+            <div className="text-xs text-muted-foreground">"OmniOps cut our cloud bill 31% in the first quarter."</div>
             <div className="mt-2 text-sm">— Priya M., Director of Platform, Northwind</div>
           </div>
         </div>

@@ -6,8 +6,8 @@ export const Route = createFileRoute("/get-started")({
   component: GetStarted,
   head: () => ({
     meta: [
-      { title: "Get started — CloudOps" },
-      { name: "description", content: "Create your free CloudOps workspace. Connect AWS & Azure in minutes." },
+      { title: "Get started — OmniOps" },
+      { name: "description", content: "Create your free OmniOps workspace. Connect AWS & Azure in minutes." },
     ],
   }),
 });
@@ -26,7 +26,7 @@ function GetStarted() {
           <div className="grid place-items-center size-9 rounded-xl glass">
             <Cloud className="size-5 text-[var(--brand-cyan)]" />
           </div>
-          <span className="font-semibold tracking-tight">CloudOps</span>
+          <span className="font-semibold tracking-tight">OmniOps</span>
         </Link>
         <Link to="/sign-in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
           Already have one? <span className="text-[var(--brand-cyan)]">Sign in →</span>
@@ -37,7 +37,7 @@ function GetStarted() {
         {/* Form */}
         <div className="panel rounded-3xl p-8 lg:p-10">
           <div className="chip mb-5"><Sparkles className="size-3" /> Free 14-day trial · No card required</div>
-          <h1 className="text-3xl lg:text-4xl font-semibold tracking-tight">Create your <span className="text-gradient">CloudOps</span> workspace</h1>
+          <h1 className="text-3xl lg:text-4xl font-semibold tracking-tight">Create your <span className="text-gradient">OmniOps</span> workspace</h1>
           <p className="mt-2 text-sm text-muted-foreground">Connect AWS & Azure in under 5 minutes. Read-only by default.</p>
 
           {/* Stepper */}
