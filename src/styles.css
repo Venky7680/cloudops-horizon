@@ -10,6 +10,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -29,61 +30,70 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-cyan: var(--cyan);
-  --color-glass: var(--glass);
+  --color-brand: var(--brand);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-hairline: var(--hairline);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
 
   --animate-fade-in: fade-in 0.6s ease-out both;
-  --animate-fade-up: fade-up 0.7s ease-out both;
-  --animate-gradient: gradient-shift 18s ease infinite;
-  --animate-float: float 8s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-gradient: gradient-shift 22s ease infinite;
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.8s linear infinite;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-spin-slow: spin 14s linear infinite;
 
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0) translateX(0); }
-    50% { transform: translateY(-20px) translateX(10px); }
-  }
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes gradient-shift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+  @keyframes float { 0%,100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(8px,-22px,0); } }
+  @keyframes pulse-dot { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 oklch(0.78 0.16 210 / 0.5); } 50% { opacity: 0.6; box-shadow: 0 0 0 8px oklch(0.78 0.16 210 / 0); } }
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 }
 
 :root {
   --radius: 0.875rem;
-  --background: oklch(0.18 0.04 260);
+  --background: oklch(0.16 0.035 260);
   --foreground: oklch(0.97 0.01 250);
-  --card: oklch(0.22 0.04 260);
+  --card: oklch(0.21 0.035 260);
   --card-foreground: oklch(0.97 0.01 250);
-  --popover: oklch(0.22 0.04 260);
+  --popover: oklch(0.21 0.035 260);
   --popover-foreground: oklch(0.97 0.01 250);
   --primary: oklch(0.62 0.20 250);
   --primary-foreground: oklch(0.99 0.005 250);
-  --secondary: oklch(0.28 0.04 260);
+  --secondary: oklch(0.27 0.035 260);
   --secondary-foreground: oklch(0.97 0.01 250);
   --muted: oklch(0.26 0.03 260);
-  --muted-foreground: oklch(0.70 0.03 255);
-  --accent: oklch(0.78 0.16 210);
+  --muted-foreground: oklch(0.68 0.025 255);
+  --accent: oklch(0.80 0.16 205);
   --accent-foreground: oklch(0.15 0.03 260);
   --destructive: oklch(0.65 0.22 27);
   --destructive-foreground: oklch(0.99 0.005 250);
-  --border: oklch(0.35 0.04 260 / 40%);
-  --input: oklch(0.35 0.04 260 / 50%);
+  --border: oklch(0.40 0.035 260 / 30%);
+  --input: oklch(0.40 0.035 260 / 40%);
   --ring: oklch(0.62 0.20 250);
-  --cyan: oklch(0.82 0.16 200);
-  --glass: oklch(0.30 0.04 260 / 35%);
+
+  --brand: oklch(0.62 0.20 250);
+  --brand-cyan: oklch(0.82 0.16 200);
+  --surface: oklch(0.18 0.035 260);
+  --surface-2: oklch(0.22 0.035 260);
+  --surface-3: oklch(0.26 0.035 260);
+  --hairline: oklch(0.55 0.04 260 / 14%);
+  --success: oklch(0.78 0.17 155);
+  --warning: oklch(0.82 0.16 80);
+  --danger: oklch(0.68 0.22 22);
 }
 
-.dark {
-  --background: oklch(0.18 0.04 260);
-  --foreground: oklch(0.97 0.01 250);
-}
+.dark { --background: oklch(0.16 0.035 260); }
 
 @layer base {
   * { border-color: var(--color-border); }
@@ -91,30 +101,95 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-feature-settings: "cv02", "cv11";
+    font-feature-settings: "cv02", "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-@utility glass-card {
-  background: linear-gradient(135deg, oklch(0.30 0.04 260 / 0.5), oklch(0.22 0.04 260 / 0.3));
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid oklch(0.55 0.05 260 / 0.18);
+@utility glass {
+  background: linear-gradient(135deg, oklch(0.30 0.035 260 / 0.55), oklch(0.20 0.035 260 / 0.35));
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--hairline);
 }
 
-@utility hero-gradient-bg {
+@utility panel {
+  background: linear-gradient(180deg, oklch(0.22 0.035 260 / 0.85), oklch(0.18 0.035 260 / 0.85));
+  border: 1px solid var(--hairline);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 0.04) inset,
+    0 30px 80px -30px oklch(0 0 0 / 0.6);
+}
+
+@utility hero-bg {
   background:
-    radial-gradient(ellipse 80% 60% at 20% 10%, oklch(0.45 0.22 255 / 0.45), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 85% 20%, oklch(0.55 0.18 200 / 0.35), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 50% 90%, oklch(0.40 0.20 280 / 0.30), transparent 60%),
-    linear-gradient(135deg, oklch(0.16 0.04 260), oklch(0.20 0.05 255), oklch(0.16 0.04 270));
-  background-size: 200% 200%;
-  animation: gradient-shift 18s ease infinite;
+    radial-gradient(ellipse 70% 50% at 18% 8%, oklch(0.45 0.22 255 / 0.42), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 88% 18%, oklch(0.55 0.18 200 / 0.32), transparent 60%),
+    radial-gradient(ellipse 70% 55% at 50% 100%, oklch(0.42 0.20 275 / 0.28), transparent 60%),
+    linear-gradient(135deg, oklch(0.14 0.035 260), oklch(0.18 0.04 255), oklch(0.14 0.035 270));
+  background-size: 220% 220%;
+  animation: gradient-shift 22s ease infinite;
 }
 
-@utility text-gradient-cyan {
-  background: linear-gradient(90deg, oklch(0.65 0.22 255), oklch(0.82 0.16 200));
+@utility grid-bg {
+  background-image:
+    linear-gradient(oklch(0.6 0.04 260 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.6 0.04 260 / 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, oklch(0.72 0.18 255), oklch(0.86 0.15 200) 60%, oklch(0.72 0.18 255));
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: shimmer 6s linear infinite;
 }
+
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  border: 1px solid var(--hairline);
+  background: oklch(0.28 0.04 260 / 0.4);
+  backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--primary-foreground);
+  background: linear-gradient(135deg, oklch(0.62 0.22 255), oklch(0.55 0.20 245));
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 0.2) inset,
+    0 10px 30px -10px oklch(0.55 0.22 250 / 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+@utility btn-primary { &:hover { transform: translateY(-1px); box-shadow: 0 1px 0 oklch(1 0 0 / 0.2) inset, 0 18px 40px -12px oklch(0.55 0.22 250 / 0.7); } }
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  background: oklch(0.28 0.04 260 / 0.4);
+  border: 1px solid var(--hairline);
+  backdrop-filter: blur(10px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+@utility btn-ghost { &:hover { background: oklch(0.32 0.04 260 / 0.6); } }
