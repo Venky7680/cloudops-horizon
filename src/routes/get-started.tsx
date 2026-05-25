@@ -29,10 +29,14 @@ function GetStarted() {
           </div>
           <span className="font-semibold tracking-tight">OmniOps</span>
         </Link>
-        <Link to="/sign-in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-          Already have one? <span className="text-[var(--brand-cyan)]">Sign in →</span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link to="/sign-in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            Already have one? <span className="text-[var(--brand-cyan)]">Sign in →</span>
+          </Link>
+        </div>
       </header>
+
 
       <main className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 px-6 lg:px-10 py-8 lg:py-14">
         {/* Form */}
