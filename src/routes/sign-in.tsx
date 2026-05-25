@@ -55,19 +55,20 @@ function SignIn() {
           <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
             <label className="block">
               <span className="text-xs text-muted-foreground">Work email</span>
-              <div className="mt-1.5 flex items-center gap-2 rounded-xl border border-[var(--hairline)] bg-[oklch(0.22_0.035_260/0.5)] px-3 py-2.5 focus-within:ring-2 focus-within:ring-[var(--ring)] transition">
+              <div className="input-field mt-1.5">
                 <Mail className="size-4 text-muted-foreground" />
                 <input type="email" placeholder="you@company.com" className="w-full bg-transparent outline-none text-sm placeholder:text-muted-foreground/60" />
               </div>
             </label>
             <label className="block">
               <span className="text-xs text-muted-foreground">Password</span>
-              <div className="mt-1.5 flex items-center gap-2 rounded-xl border border-[var(--hairline)] bg-[oklch(0.22_0.035_260/0.5)] px-3 py-2.5 focus-within:ring-2 focus-within:ring-[var(--ring)] transition">
+              <div className="input-field mt-1.5">
                 <Lock className="size-4 text-muted-foreground" />
                 <input type={show ? "text" : "password"} placeholder="••••••••" className="w-full bg-transparent outline-none text-sm placeholder:text-muted-foreground/60" />
                 <button type="button" onClick={() => setShow(!show)} className="text-[10px] uppercase tracking-wider text-muted-foreground hover:text-foreground">{show ? "Hide" : "Show"}</button>
               </div>
             </label>
+
 
             <div className="flex items-center justify-between text-xs">
               <label className="flex items-center gap-2 text-muted-foreground cursor-pointer">
