@@ -121,3 +121,14 @@ function SignIn() {
     </div>
   );
 }
+
+function MicrosoftLogo({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="2 2 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="8" height="8" fill="#f25022" />
+      <rect x="11" y="2" width="8" height="8" fill="#7fba00" />
+      <rect x="2" y="11" width="8" height="8" fill="#00a4ef" />
+      <rect x="11" y="11" width="8" height="8" fill="#ffb900" />
+    </svg>
+  );
+}
