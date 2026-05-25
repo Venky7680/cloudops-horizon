@@ -5,6 +5,7 @@ import {
   Building2, ShieldCheck, DollarSign, KeyRound, Box, CheckCircle2,
   Sliders, Sparkles, Wrench, LayoutGrid, Activity, Server, FileCheck2, Filter,
 } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/accounts")({
   component: Accounts,
