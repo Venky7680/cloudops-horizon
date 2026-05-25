@@ -27,9 +27,12 @@ function SignIn() {
           </div>
           <span className="font-semibold tracking-tight">OmniOps</span>
         </Link>
-        <Link to="/get-started" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-          New here? <span className="text-[var(--brand-cyan)]">Create account →</span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link to="/get-started" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            New here? <span className="text-[var(--brand-cyan)]">Create account →</span>
+          </Link>
+        </div>
       </header>
 
       <main className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-2 gap-10 px-6 lg:px-10 py-10 lg:py-16">
