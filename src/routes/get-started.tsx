@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Cloud, Mail, Lock, User, Building2, ArrowRight, Chrome, Github, Check, Sparkles, ShieldCheck } from "lucide-react";
+import { Cloud, Mail, Lock, User, Building2, ArrowRight, Chrome, Check, Sparkles, ShieldCheck } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/get-started")({
@@ -65,7 +65,7 @@ function GetStarted() {
 
           <div className="mt-8 grid grid-cols-2 gap-3">
             <button className="btn-ghost justify-center"><Chrome className="size-4" /> Sign up with Google</button>
-            <button className="btn-ghost justify-center"><Github className="size-4" /> Sign up with GitHub</button>
+            <button className="btn-ghost justify-center"><MicrosoftLogo className="size-4" /> Sign up with Microsoft</button>
           </div>
           <div className="my-6 flex items-center gap-3 text-xs text-muted-foreground">
             <div className="h-px flex-1 bg-[var(--hairline)]" /> or fill in the details <div className="h-px flex-1 bg-[var(--hairline)]" />
