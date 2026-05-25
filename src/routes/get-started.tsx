@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Cloud, Mail, Lock, User, Building2, ArrowRight, Chrome, Github, Check, Sparkles, ShieldCheck } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/get-started")({
   component: GetStarted,
