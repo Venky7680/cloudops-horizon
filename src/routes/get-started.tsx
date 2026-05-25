@@ -166,7 +166,7 @@ function Field({ icon, label, type = "text", placeholder }: { icon: React.ReactN
   return (
     <label className="block">
       <span className="text-xs text-muted-foreground">{label}</span>
-      <div className="mt-1.5 flex items-center gap-2 rounded-xl border border-[var(--hairline)] bg-[oklch(0.22_0.035_260/0.5)] px-3 py-2.5 focus-within:ring-2 focus-within:ring-[var(--ring)] transition">
+      <div className="input-field mt-1.5">
         <span className="text-muted-foreground">{icon}</span>
         <input type={type} placeholder={placeholder} className="w-full bg-transparent outline-none text-sm placeholder:text-muted-foreground/60" />
       </div>
