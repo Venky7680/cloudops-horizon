@@ -233,3 +233,44 @@
   transition: background 0.2s ease, transform 0.2s ease;
 }
 @utility btn-ghost { &:hover { background: oklch(0.32 0.04 260 / 0.6); } }
+
+@utility input-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--hairline);
+  background: oklch(0.22 0.035 260 / 0.5);
+  padding: 0.625rem 0.75rem;
+  transition: box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+@utility input-field { &:focus-within { box-shadow: 0 0 0 2px var(--ring); } }
+
+.light .input-field {
+  background: oklch(1 0 0 / 0.9);
+  border-color: oklch(0.30 0.03 260 / 0.18);
+  box-shadow: 0 1px 2px oklch(0.3 0.05 260 / 0.06);
+}
+.light .input-field:focus-within {
+  background: oklch(1 0 0);
+  border-color: oklch(0.55 0.20 250 / 0.5);
+  box-shadow: 0 0 0 3px oklch(0.55 0.20 250 / 0.18);
+}
+
+.light .btn-ghost {
+  background: oklch(1 0 0 / 0.85);
+  border-color: oklch(0.30 0.03 260 / 0.15);
+  color: var(--foreground);
+  box-shadow: 0 1px 2px oklch(0.3 0.05 260 / 0.06);
+}
+.light .btn-ghost:hover {
+  background: oklch(0.97 0.01 250);
+  border-color: oklch(0.55 0.20 250 / 0.35);
+}
+
+.light .chip {
+  background: oklch(1 0 0 / 0.85);
+  border-color: oklch(0.30 0.03 260 / 0.12);
+  color: var(--muted-foreground);
+  box-shadow: 0 1px 2px oklch(0.3 0.05 260 / 0.05);
+}
