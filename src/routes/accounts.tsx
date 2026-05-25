@@ -5,6 +5,7 @@ import {
   Building2, ShieldCheck, DollarSign, KeyRound, Box, CheckCircle2,
   Sliders, Sparkles, Wrench, LayoutGrid, Activity, Server, FileCheck2, Filter,
 } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/accounts")({
   component: Accounts,
@@ -102,6 +103,7 @@ function Accounts() {
                 <input placeholder="Search accounts, regions, tags…" className="w-full bg-transparent outline-none text-sm" />
                 <kbd className="text-[10px] text-muted-foreground border border-[var(--hairline)] rounded px-1.5 py-0.5">⌘K</kbd>
               </div>
+              <ThemeToggle />
               <button className="relative grid place-items-center size-9 rounded-xl glass">
                 <Bell className="size-4" />
                 <span className="absolute top-1.5 right-1.5 size-1.5 rounded-full bg-[var(--danger)] animate-pulse-dot" />
