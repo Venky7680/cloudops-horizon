@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Cloud, Mail, Lock, ArrowRight, Github, Chrome, ShieldCheck, Activity, Sparkles } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/sign-in")({
   component: SignIn,
