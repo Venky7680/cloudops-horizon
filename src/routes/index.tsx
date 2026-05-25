@@ -120,6 +120,7 @@ function Navbar() {
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <Link
             to="/sign-in"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
