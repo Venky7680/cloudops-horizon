@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Cloud, Mail, Lock, ArrowRight, Github, Chrome, ShieldCheck, Activity, Sparkles } from "lucide-react";
+import { Cloud, Mail, Lock, ArrowRight, Chrome, ShieldCheck, Activity, Sparkles } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/sign-in")({
@@ -45,7 +45,7 @@ function SignIn() {
 
           <div className="mt-7 grid grid-cols-2 gap-3">
             <button className="btn-ghost justify-center"><Chrome className="size-4" /> Google</button>
-            <button className="btn-ghost justify-center"><Github className="size-4" /> GitHub</button>
+            <button className="btn-ghost justify-center"><MicrosoftLogo className="size-4" /> Microsoft</button>
           </div>
 
           <div className="my-6 flex items-center gap-3 text-xs text-muted-foreground">
@@ -119,5 +119,16 @@ function SignIn() {
         </div>
       </main>
     </div>
+  );
+}
+
+function MicrosoftLogo({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="2 2 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="8" height="8" fill="#f25022" />
+      <rect x="11" y="2" width="8" height="8" fill="#7fba00" />
+      <rect x="2" y="11" width="8" height="8" fill="#00a4ef" />
+      <rect x="11" y="11" width="8" height="8" fill="#ffb900" />
+    </svg>
   );
 }
