@@ -263,7 +263,7 @@ function Group({ label, children }: { label: string; children: React.ReactNode }
 }
 function NavItem({ icon, children, active }: { icon: React.ReactNode; children: React.ReactNode; active?: boolean }) {
   return (
-    <button className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition ${active ? "bg-gradient-to-r from-[oklch(0.62_0.22_255/0.18)] to-transparent text-foreground border border-[oklch(0.62_0.22_255/0.3)]" : "text-muted-foreground hover:text-foreground hover:bg-[oklch(0.25_0.035_260/0.4)]"}`}>
+    <button className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition ${active ? "bg-gradient-to-r from-[oklch(0.62_0.22_255/0.18)] to-transparent text-foreground border border-[oklch(0.62_0.22_255/0.3)]" : "text-muted-foreground hover:text-foreground hover:bg-muted/60"}`}>
       <span className={active ? "text-[var(--brand-cyan)]" : ""}>{icon}</span>{children}
     </button>
   );
