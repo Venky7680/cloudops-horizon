@@ -91,7 +91,7 @@ function Accounts() {
         {/* Main */}
         <main className="flex-1 min-w-0">
           {/* Topbar */}
-          <header className="sticky top-0 z-20 h-16 flex items-center justify-between px-6 lg:px-8 border-b border-[var(--hairline)] bg-[oklch(0.16_0.035_260/0.7)] backdrop-blur-xl">
+          <header className="sticky top-0 z-20 h-16 flex items-center justify-between px-6 lg:px-8 border-b border-[var(--hairline)] bg-surface/80 backdrop-blur-xl">
             <nav className="flex items-center gap-2 text-sm text-muted-foreground">
               <Home className="size-4" />
               <ChevronRight className="size-3.5" />
