@@ -278,7 +278,7 @@ function Row({ label, value }: { label: string; value: number }) {
 }
 function Select({ label }: { label: string }) {
   return (
-    <button className="flex items-center gap-2 rounded-xl border border-[var(--hairline)] bg-[oklch(0.22_0.035_260/0.5)] px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground">
+    <button className="input-field py-1.5 text-xs text-muted-foreground hover:text-foreground">
       {label} <ChevronRight className="size-3 rotate-90" />
     </button>
   );
