@@ -98,7 +98,7 @@ function Accounts() {
               <span className="text-foreground font-medium">Account Governance</span>
             </nav>
             <div className="flex items-center gap-3">
-              <div className="hidden md:flex items-center gap-2 rounded-xl border border-[var(--hairline)] bg-[oklch(0.22_0.035_260/0.5)] px-3 py-1.5 w-72">
+              <div className="input-field hidden md:flex w-72 py-1.5">
                 <Search className="size-4 text-muted-foreground" />
                 <input placeholder="Search accounts, regions, tags…" className="w-full bg-transparent outline-none text-sm" />
                 <kbd className="text-[10px] text-muted-foreground border border-[var(--hairline)] rounded px-1.5 py-0.5">⌘K</kbd>
