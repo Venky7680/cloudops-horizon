@@ -140,7 +140,7 @@ function Accounts() {
                     }`}
                   >
                     <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient} ${isActive ? "opacity-100" : "opacity-25 group-hover:opacity-40"} transition`} />
-                    <div className="absolute inset-0 bg-[oklch(0.14_0.035_260/0.55)]" />
+                    <div className="absolute inset-0 tile-overlay" />
                     <div className="relative">
                       <div className="flex items-start justify-between">
                         <div className="text-[11px] tracking-[0.18em] font-semibold text-white/85">{p.label.toUpperCase()}</div>
