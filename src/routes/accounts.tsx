@@ -199,7 +199,7 @@ function Accounts() {
                   </thead>
                   <tbody>
                     {accounts.map((a) => (
-                      <tr key={a.id} className="border-t border-[var(--hairline)] hover:bg-[oklch(0.25_0.035_260/0.4)] transition group">
+                      <tr key={a.id} className="border-t border-[var(--hairline)] hover:bg-muted/50 transition group">
                         <Td>
                           <div className="flex items-center gap-3">
                             <div className="size-9 rounded-xl bg-gradient-to-br from-[oklch(0.78_0.18_60)] to-[oklch(0.6_0.22_35)] grid place-items-center shadow-md">
