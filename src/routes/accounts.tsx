@@ -172,7 +172,7 @@ function Accounts() {
                   <span className="chip ml-1">{accounts.length}</span>
                 </div>
                 <div className="flex-1" />
-                <div className="flex items-center gap-2 rounded-xl border border-[var(--hairline)] bg-[oklch(0.22_0.035_260/0.5)] px-3 py-1.5 w-60">
+                <div className="input-field w-60 py-1.5">
                   <Search className="size-4 text-muted-foreground" />
                   <input placeholder="Search Accounts" className="w-full bg-transparent outline-none text-xs" />
                 </div>
