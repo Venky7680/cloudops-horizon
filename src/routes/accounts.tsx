@@ -44,7 +44,7 @@ function Accounts() {
 
       <div className="relative z-10 flex">
         {/* Sidebar */}
-        <aside className="hidden lg:flex flex-col w-64 shrink-0 min-h-screen border-r border-[var(--hairline)] bg-[oklch(0.16_0.035_260/0.6)] backdrop-blur-xl">
+        <aside className="hidden lg:flex flex-col w-64 shrink-0 min-h-screen border-r border-[var(--hairline)] bg-surface/70 backdrop-blur-xl">
           <Link to="/" className="flex items-center gap-2.5 px-5 h-16 border-b border-[var(--hairline)]">
             <div className="grid place-items-center size-9 rounded-xl bg-gradient-to-br from-[oklch(0.62_0.22_255)] to-[oklch(0.78_0.16_200)] shadow-lg shadow-[oklch(0.55_0.22_250/0.4)]">
               <Cloud className="size-5 text-white" />
