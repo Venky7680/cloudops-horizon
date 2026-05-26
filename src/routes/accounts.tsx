@@ -44,7 +44,7 @@ function Accounts() {
 
       <div className="relative z-10 flex">
         {/* Sidebar */}
-        <aside className="hidden lg:flex flex-col w-64 shrink-0 min-h-screen border-r border-[var(--hairline)] bg-[oklch(0.16_0.035_260/0.6)] backdrop-blur-xl">
+        <aside className="hidden lg:flex flex-col w-64 shrink-0 min-h-screen border-r border-[var(--hairline)] bg-surface/70 backdrop-blur-xl">
           <Link to="/" className="flex items-center gap-2.5 px-5 h-16 border-b border-[var(--hairline)]">
             <div className="grid place-items-center size-9 rounded-xl bg-gradient-to-br from-[oklch(0.62_0.22_255)] to-[oklch(0.78_0.16_200)] shadow-lg shadow-[oklch(0.55_0.22_250/0.4)]">
               <Cloud className="size-5 text-white" />
@@ -91,14 +91,14 @@ function Accounts() {
         {/* Main */}
         <main className="flex-1 min-w-0">
           {/* Topbar */}
-          <header className="sticky top-0 z-20 h-16 flex items-center justify-between px-6 lg:px-8 border-b border-[var(--hairline)] bg-[oklch(0.16_0.035_260/0.7)] backdrop-blur-xl">
+          <header className="sticky top-0 z-20 h-16 flex items-center justify-between px-6 lg:px-8 border-b border-[var(--hairline)] bg-surface/80 backdrop-blur-xl">
             <nav className="flex items-center gap-2 text-sm text-muted-foreground">
               <Home className="size-4" />
               <ChevronRight className="size-3.5" />
               <span className="text-foreground font-medium">Account Governance</span>
             </nav>
             <div className="flex items-center gap-3">
-              <div className="hidden md:flex items-center gap-2 rounded-xl border border-[var(--hairline)] bg-[oklch(0.22_0.035_260/0.5)] px-3 py-1.5 w-72">
+              <div className="input-field hidden md:flex w-72 py-1.5">
                 <Search className="size-4 text-muted-foreground" />
                 <input placeholder="Search accounts, regions, tags…" className="w-full bg-transparent outline-none text-sm" />
                 <kbd className="text-[10px] text-muted-foreground border border-[var(--hairline)] rounded px-1.5 py-0.5">⌘K</kbd>
@@ -140,7 +140,7 @@ function Accounts() {
                     }`}
                   >
                     <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient} ${isActive ? "opacity-100" : "opacity-25 group-hover:opacity-40"} transition`} />
-                    <div className="absolute inset-0 bg-[oklch(0.14_0.035_260/0.55)]" />
+                    <div className="absolute inset-0 tile-overlay" />
                     <div className="relative">
                       <div className="flex items-start justify-between">
                         <div className="text-[11px] tracking-[0.18em] font-semibold text-white/85">{p.label.toUpperCase()}</div>
@@ -172,7 +172,7 @@ function Accounts() {
                   <span className="chip ml-1">{accounts.length}</span>
                 </div>
                 <div className="flex-1" />
-                <div className="flex items-center gap-2 rounded-xl border border-[var(--hairline)] bg-[oklch(0.22_0.035_260/0.5)] px-3 py-1.5 w-60">
+                <div className="input-field w-60 py-1.5">
                   <Search className="size-4 text-muted-foreground" />
                   <input placeholder="Search Accounts" className="w-full bg-transparent outline-none text-xs" />
                 </div>
@@ -199,7 +199,7 @@ function Accounts() {
                   </thead>
                   <tbody>
                     {accounts.map((a) => (
-                      <tr key={a.id} className="border-t border-[var(--hairline)] hover:bg-[oklch(0.25_0.035_260/0.4)] transition group">
+                      <tr key={a.id} className="border-t border-[var(--hairline)] hover:bg-muted/50 transition group">
                         <Td>
                           <div className="flex items-center gap-3">
                             <div className="size-9 rounded-xl bg-gradient-to-br from-[oklch(0.78_0.18_60)] to-[oklch(0.6_0.22_35)] grid place-items-center shadow-md">
@@ -263,7 +263,7 @@ function Group({ label, children }: { label: string; children: React.ReactNode }
 }
 function NavItem({ icon, children, active }: { icon: React.ReactNode; children: React.ReactNode; active?: boolean }) {
   return (
-    <button className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition ${active ? "bg-gradient-to-r from-[oklch(0.62_0.22_255/0.18)] to-transparent text-foreground border border-[oklch(0.62_0.22_255/0.3)]" : "text-muted-foreground hover:text-foreground hover:bg-[oklch(0.25_0.035_260/0.4)]"}`}>
+    <button className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-left transition ${active ? "bg-gradient-to-r from-[oklch(0.62_0.22_255/0.18)] to-transparent text-foreground border border-[oklch(0.62_0.22_255/0.3)]" : "text-muted-foreground hover:text-foreground hover:bg-muted/60"}`}>
       <span className={active ? "text-[var(--brand-cyan)]" : ""}>{icon}</span>{children}
     </button>
   );
@@ -278,7 +278,7 @@ function Row({ label, value }: { label: string; value: number }) {
 }
 function Select({ label }: { label: string }) {
   return (
-    <button className="flex items-center gap-2 rounded-xl border border-[var(--hairline)] bg-[oklch(0.22_0.035_260/0.5)] px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground">
+    <button className="input-field py-1.5 text-xs text-muted-foreground hover:text-foreground">
       {label} <ChevronRight className="size-3 rotate-90" />
     </button>
   );

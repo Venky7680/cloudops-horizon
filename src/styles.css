@@ -274,3 +274,8 @@
   color: var(--muted-foreground);
   box-shadow: 0 1px 2px oklch(0.3 0.05 260 / 0.05);
 }
+
+/* Provider tile dark overlay — softer in light mode for richer color */
+.tile-overlay { background: oklch(0.14 0.035 260 / 0.55); }
+.light .tile-overlay { background: oklch(0.20 0.04 260 / 0.28); }
+
