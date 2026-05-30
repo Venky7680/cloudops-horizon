@@ -19,12 +19,31 @@ export const Route = createFileRoute("/accounts")({
 
 type Provider = "AWS" | "AZURE" | "GCP" | "VMWARE" | "OCI";
 
-const providers: { id: Provider; label: string; total: number; sub?: { master: number; linked: number }; gradient: string; ring: string; }[] = [
-  { id: "AWS", label: "AWS", total: 1, sub: { master: 1, linked: 0 }, gradient: "from-[oklch(0.78_0.18_60)] to-[oklch(0.6_0.22_35)]", ring: "ring-[oklch(0.78_0.18_60/0.4)]" },
-  { id: "AZURE", label: "Azure", total: 0, gradient: "from-[oklch(0.68_0.18_245)] to-[oklch(0.5_0.22_255)]", ring: "ring-[oklch(0.68_0.18_245/0.4)]" },
-  { id: "GCP", label: "GCP", total: 0, gradient: "from-[oklch(0.72_0.16_260)] to-[oklch(0.55_0.22_280)]", ring: "ring-[oklch(0.72_0.16_260/0.4)]" },
-  { id: "VMWARE", label: "VMware", total: 2, gradient: "from-[oklch(0.55_0.02_260)] to-[oklch(0.32_0.02_260)]", ring: "ring-[oklch(0.55_0.02_260/0.4)]" },
-  { id: "OCI", label: "OCI", total: 12, gradient: "from-[oklch(0.65_0.22_27)] to-[oklch(0.5_0.22_22)]", ring: "ring-[oklch(0.65_0.22_27/0.4)]" },
+const providers: {
+  id: Provider; label: string; total: number;
+  sub?: { master: number; linked: number };
+  gradient: string; ring: string;
+  region: string; health: number;
+  list: { name: string; region: string; status: "Active" | "Paused" }[];
+}[] = [
+  { id: "AWS", label: "AWS", total: 4, sub: { master: 1, linked: 3 }, gradient: "from-[oklch(0.78_0.18_60)] to-[oklch(0.6_0.22_35)]", ring: "ring-[oklch(0.78_0.18_60/0.4)]", region: "Multi-region", health: 98, list: [
+    { name: "prod-aws-master", region: "us-east-1", status: "Active" },
+    { name: "stage-aws", region: "eu-west-1", status: "Active" },
+    { name: "data-lake-aws", region: "ap-south-1", status: "Active" },
+    { name: "sandbox-dev", region: "us-west-2", status: "Paused" },
+  ] },
+  { id: "AZURE", label: "Azure", total: 0, gradient: "from-[oklch(0.68_0.18_245)] to-[oklch(0.5_0.22_255)]", ring: "ring-[oklch(0.68_0.18_245/0.4)]", region: "—", health: 0, list: [] },
+  { id: "GCP", label: "GCP", total: 0, gradient: "from-[oklch(0.72_0.16_260)] to-[oklch(0.55_0.22_280)]", ring: "ring-[oklch(0.72_0.16_260/0.4)]", region: "—", health: 0, list: [] },
+  { id: "VMWARE", label: "VMware", total: 2, gradient: "from-[oklch(0.55_0.02_260)] to-[oklch(0.32_0.02_260)]", ring: "ring-[oklch(0.55_0.02_260/0.4)]", region: "On-prem", health: 92, list: [
+    { name: "vmw-dc-north", region: "dc-north", status: "Active" },
+    { name: "vmw-dc-south", region: "dc-south", status: "Active" },
+  ] },
+  { id: "OCI", label: "OCI", total: 12, gradient: "from-[oklch(0.65_0.22_27)] to-[oklch(0.5_0.22_22)]", ring: "ring-[oklch(0.65_0.22_27/0.4)]", region: "Multi-region", health: 95, list: [
+    { name: "oci-prod-01", region: "us-ashburn-1", status: "Active" },
+    { name: "oci-prod-02", region: "uk-london-1", status: "Active" },
+    { name: "oci-stage", region: "ap-mumbai-1", status: "Active" },
+    { name: "oci-sandbox", region: "us-phoenix-1", status: "Paused" },
+  ] },
 ];
 
 const accounts = [
