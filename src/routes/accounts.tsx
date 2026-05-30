@@ -19,12 +19,31 @@ export const Route = createFileRoute("/accounts")({
 
 type Provider = "AWS" | "AZURE" | "GCP" | "VMWARE" | "OCI";
 
-const providers: { id: Provider; label: string; total: number; sub?: { master: number; linked: number }; gradient: string; ring: string; }[] = [
-  { id: "AWS", label: "AWS", total: 1, sub: { master: 1, linked: 0 }, gradient: "from-[oklch(0.78_0.18_60)] to-[oklch(0.6_0.22_35)]", ring: "ring-[oklch(0.78_0.18_60/0.4)]" },
-  { id: "AZURE", label: "Azure", total: 0, gradient: "from-[oklch(0.68_0.18_245)] to-[oklch(0.5_0.22_255)]", ring: "ring-[oklch(0.68_0.18_245/0.4)]" },
-  { id: "GCP", label: "GCP", total: 0, gradient: "from-[oklch(0.72_0.16_260)] to-[oklch(0.55_0.22_280)]", ring: "ring-[oklch(0.72_0.16_260/0.4)]" },
-  { id: "VMWARE", label: "VMware", total: 2, gradient: "from-[oklch(0.55_0.02_260)] to-[oklch(0.32_0.02_260)]", ring: "ring-[oklch(0.55_0.02_260/0.4)]" },
-  { id: "OCI", label: "OCI", total: 12, gradient: "from-[oklch(0.65_0.22_27)] to-[oklch(0.5_0.22_22)]", ring: "ring-[oklch(0.65_0.22_27/0.4)]" },
+const providers: {
+  id: Provider; label: string; total: number;
+  sub?: { master: number; linked: number };
+  gradient: string; ring: string;
+  region: string; health: number;
+  list: { name: string; region: string; status: "Active" | "Paused" }[];
+}[] = [
+  { id: "AWS", label: "AWS", total: 4, sub: { master: 1, linked: 3 }, gradient: "from-[oklch(0.78_0.18_60)] to-[oklch(0.6_0.22_35)]", ring: "ring-[oklch(0.78_0.18_60/0.4)]", region: "Multi-region", health: 98, list: [
+    { name: "prod-aws-master", region: "us-east-1", status: "Active" },
+    { name: "stage-aws", region: "eu-west-1", status: "Active" },
+    { name: "data-lake-aws", region: "ap-south-1", status: "Active" },
+    { name: "sandbox-dev", region: "us-west-2", status: "Paused" },
+  ] },
+  { id: "AZURE", label: "Azure", total: 0, gradient: "from-[oklch(0.68_0.18_245)] to-[oklch(0.5_0.22_255)]", ring: "ring-[oklch(0.68_0.18_245/0.4)]", region: "—", health: 0, list: [] },
+  { id: "GCP", label: "GCP", total: 0, gradient: "from-[oklch(0.72_0.16_260)] to-[oklch(0.55_0.22_280)]", ring: "ring-[oklch(0.72_0.16_260/0.4)]", region: "—", health: 0, list: [] },
+  { id: "VMWARE", label: "VMware", total: 2, gradient: "from-[oklch(0.55_0.02_260)] to-[oklch(0.32_0.02_260)]", ring: "ring-[oklch(0.55_0.02_260/0.4)]", region: "On-prem", health: 92, list: [
+    { name: "vmw-dc-north", region: "dc-north", status: "Active" },
+    { name: "vmw-dc-south", region: "dc-south", status: "Active" },
+  ] },
+  { id: "OCI", label: "OCI", total: 12, gradient: "from-[oklch(0.65_0.22_27)] to-[oklch(0.5_0.22_22)]", ring: "ring-[oklch(0.65_0.22_27/0.4)]", region: "Multi-region", health: 95, list: [
+    { name: "oci-prod-01", region: "us-ashburn-1", status: "Active" },
+    { name: "oci-prod-02", region: "uk-london-1", status: "Active" },
+    { name: "oci-stage", region: "ap-mumbai-1", status: "Active" },
+    { name: "oci-sandbox", region: "us-phoenix-1", status: "Paused" },
+  ] },
 ];
 
 const accounts = [
@@ -127,37 +146,77 @@ function Accounts() {
               <button className="btn-primary"><Plus className="size-4" /> Add new account</button>
             </div>
 
-            {/* Provider tiles */}
-            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
+            {/* Provider tiles — collapsed by default, expand on hover/click */}
+            <div className="flex flex-col md:flex-row gap-4 md:h-64">
               {providers.map((p) => {
                 const isActive = active === p.id;
                 return (
                   <button
                     key={p.id}
                     onClick={() => setActive(p.id)}
-                    className={`group relative overflow-hidden rounded-2xl p-5 text-left transition border ${
-                      isActive ? `border-transparent ring-2 ${p.ring}` : "border-[var(--hairline)] hover:-translate-y-0.5"
+                    onMouseEnter={() => setActive(p.id)}
+                    className={`group relative overflow-hidden rounded-2xl text-left border transition-all duration-500 ease-[cubic-bezier(0.2,0.7,0.2,1)] ${
+                      isActive
+                        ? `md:flex-[6] border-transparent ring-2 ${p.ring} shadow-2xl`
+                        : "md:flex-[1] border-[var(--hairline)] hover:md:flex-[1.4]"
                     }`}
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient} ${isActive ? "opacity-100" : "opacity-25 group-hover:opacity-40"} transition`} />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient} ${isActive ? "opacity-100" : "opacity-40 group-hover:opacity-60"} transition`} />
                     <div className="absolute inset-0 tile-overlay" />
-                    <div className="relative">
-                      <div className="flex items-start justify-between">
-                        <div className="text-[11px] tracking-[0.18em] font-semibold text-white/85">{p.label.toUpperCase()}</div>
-                        <Cloud className="size-4 text-white/80" />
-                      </div>
-                      {p.sub ? (
-                        <div className="mt-4 space-y-1.5">
-                          <Row label="Master / Payer" value={p.sub.master} />
-                          <Row label="Linked Accounts" value={p.sub.linked} />
+
+                    {!isActive && (
+                      <div className="relative h-full min-h-[5rem] flex md:flex-col items-center justify-between p-5">
+                        <div className="flex md:flex-col items-center gap-3">
+                          <Cloud className="size-5 text-white/90" />
+                          <div className="text-sm md:text-xs font-semibold tracking-[0.22em] text-white md:[writing-mode:vertical-rl] md:rotate-180">
+                            {p.label.toUpperCase()}
+                          </div>
                         </div>
-                      ) : (
-                        <>
-                          <div className="mt-3 text-4xl font-semibold tabular-nums text-white">{p.total}</div>
-                          <div className="text-[11px] text-white/75 mt-0.5">Total Cloud Accounts</div>
-                        </>
-                      )}
-                    </div>
+                        <div className="text-[11px] tabular-nums text-white/80 md:[writing-mode:vertical-rl] md:rotate-180">
+                          {p.total} acc
+                        </div>
+                      </div>
+                    )}
+
+                    {isActive && (
+                      <div className="relative h-full flex flex-col p-5 animate-fade-in">
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <div className="text-[11px] tracking-[0.22em] font-semibold text-white/85">{p.label.toUpperCase()}</div>
+                            <div className="mt-1 text-2xl font-semibold tabular-nums text-white">
+                              {p.total} <span className="text-sm font-normal text-white/75">accounts</span>
+                            </div>
+                          </div>
+                          <Cloud className="size-5 text-white/85" />
+                        </div>
+
+                        <div className="mt-3 grid grid-cols-3 gap-2">
+                          <Stat label="Health" value={p.health ? `${p.health}%` : "—"} />
+                          <Stat label="Regions" value={p.region} />
+                          <Stat label="Master" value={p.sub ? `${p.sub.master}/${p.sub.linked}` : "—"} />
+                        </div>
+
+                        <div className="mt-3 flex-1 overflow-y-auto rounded-lg bg-white/10 backdrop-blur divide-y divide-white/10">
+                          {p.list.length === 0 ? (
+                            <div className="h-full grid place-items-center text-[11px] text-white/70 py-6">
+                              No accounts onboarded
+                            </div>
+                          ) : (
+                            p.list.map((a) => (
+                              <div key={a.name} className="flex items-center justify-between px-2.5 py-1.5">
+                                <div className="min-w-0">
+                                  <div className="text-xs font-medium text-white truncate">{a.name}</div>
+                                  <div className="text-[10px] text-white/70">{a.region}</div>
+                                </div>
+                                <span className={`text-[10px] px-1.5 py-0.5 rounded ${a.status === "Active" ? "bg-[var(--success)]/30 text-white" : "bg-[var(--warning)]/30 text-white"}`}>
+                                  {a.status}
+                                </span>
+                              </div>
+                            ))
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </button>
                 );
               })}
@@ -288,4 +347,12 @@ function Th({ children, className = "" }: { children: React.ReactNode; className
 }
 function Td({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return <td className={`px-5 py-3 align-middle ${className}`}>{children}</td>;
+}
+function Stat({ label, value }: { label: string; value: string | number }) {
+  return (
+    <div className="rounded-lg bg-white/10 backdrop-blur px-2 py-1.5">
+      <div className="text-[9px] uppercase tracking-wider text-white/70">{label}</div>
+      <div className="text-xs font-semibold text-white truncate">{value}</div>
+    </div>
+  );
 }
