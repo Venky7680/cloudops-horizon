@@ -55,6 +55,7 @@ const accounts = [
 
 function Accounts() {
   const [active, setActive] = useState<Provider>("AWS");
+  const [hovered, setHovered] = useState<Provider | null>(null);
   return (
     <div className="relative min-h-screen text-foreground bg-background">
       <div className="absolute inset-0 grid-bg pointer-events-none opacity-60" />
