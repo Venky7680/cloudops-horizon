@@ -348,3 +348,11 @@ function Th({ children, className = "" }: { children: React.ReactNode; className
 function Td({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return <td className={`px-5 py-3 align-middle ${className}`}>{children}</td>;
 }
+function Stat({ label, value }: { label: string; value: string | number }) {
+  return (
+    <div className="rounded-lg bg-white/10 backdrop-blur px-2 py-1.5">
+      <div className="text-[9px] uppercase tracking-wider text-white/70">{label}</div>
+      <div className="text-xs font-semibold text-white truncate">{value}</div>
+    </div>
+  );
+}
