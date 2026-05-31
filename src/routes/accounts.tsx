@@ -196,25 +196,6 @@ function Accounts() {
                           <Stat label="Master" value={p.sub ? `${p.sub.master}/${p.sub.linked}` : "—"} />
                         </div>
 
-                        <div className="mt-3 flex-1 overflow-y-auto rounded-lg bg-white/10 backdrop-blur divide-y divide-white/10">
-                          {p.list.length === 0 ? (
-                            <div className="h-full grid place-items-center text-[11px] text-white/70 py-6">
-                              No accounts onboarded
-                            </div>
-                          ) : (
-                            p.list.map((a) => (
-                              <div key={a.name} className="flex items-center justify-between px-2.5 py-1.5">
-                                <div className="min-w-0">
-                                  <div className="text-xs font-medium text-white truncate">{a.name}</div>
-                                  <div className="text-[10px] text-white/70">{a.region}</div>
-                                </div>
-                                <span className={`text-[10px] px-1.5 py-0.5 rounded ${a.status === "Active" ? "bg-[var(--success)]/30 text-white" : "bg-[var(--warning)]/30 text-white"}`}>
-                                  {a.status}
-                                </span>
-                              </div>
-                            ))
-                          )}
-                        </div>
                       </div>
                     )}
                   </button>
