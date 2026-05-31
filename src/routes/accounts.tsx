@@ -147,7 +147,7 @@ function Accounts() {
             </div>
 
             {/* Provider tiles — collapsed by default, expand on hover/click */}
-            <div className="flex flex-col md:flex-row gap-4 md:h-64">
+            <div className="flex flex-col md:flex-row gap-4 md:h-80">
               {providers.map((p) => {
                 const isActive = active === p.id;
                 return (
