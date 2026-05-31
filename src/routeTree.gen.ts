@@ -13,6 +13,7 @@ import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as GetStartedRouteImport } from './routes/get-started'
 import { Route as AccountsRouteImport } from './routes/accounts'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountIdRouteImport } from './routes/account.$id'
 
 const SignInRoute = SignInRouteImport.update({
   id: '/sign-in',
@@ -34,18 +35,25 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountIdRoute = AccountIdRouteImport.update({
+  id: '/account/$id',
+  path: '/account/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accounts': typeof AccountsRoute
   '/get-started': typeof GetStartedRoute
   '/sign-in': typeof SignInRoute
+  '/account/$id': typeof AccountIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accounts': typeof AccountsRoute
   '/get-started': typeof GetStartedRoute
   '/sign-in': typeof SignInRoute
+  '/account/$id': typeof AccountIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,20 @@ export interface FileRoutesById {
   '/accounts': typeof AccountsRoute
   '/get-started': typeof GetStartedRoute
   '/sign-in': typeof SignInRoute
+  '/account/$id': typeof AccountIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/accounts' | '/get-started' | '/sign-in'
+  fullPaths: '/' | '/accounts' | '/get-started' | '/sign-in' | '/account/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/accounts' | '/get-started' | '/sign-in'
-  id: '__root__' | '/' | '/accounts' | '/get-started' | '/sign-in'
+  to: '/' | '/accounts' | '/get-started' | '/sign-in' | '/account/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/accounts'
+    | '/get-started'
+    | '/sign-in'
+    | '/account/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +82,7 @@ export interface RootRouteChildren {
   AccountsRoute: typeof AccountsRoute
   GetStartedRoute: typeof GetStartedRoute
   SignInRoute: typeof SignInRoute
+  AccountIdRoute: typeof AccountIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +115,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account/$id': {
+      id: '/account/$id'
+      path: '/account/$id'
+      fullPath: '/account/$id'
+      preLoaderRoute: typeof AccountIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +130,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccountsRoute: AccountsRoute,
   GetStartedRoute: GetStartedRoute,
   SignInRoute: SignInRoute,
+  AccountIdRoute: AccountIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
