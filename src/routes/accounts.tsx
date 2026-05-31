@@ -301,7 +301,7 @@ function Accounts() {
                           <span className={`size-2.5 rounded-full inline-block ${a.cred === "ok" ? "bg-[var(--success)]" : a.cred === "warn" ? "bg-[var(--warning)]" : "bg-[var(--danger)]"}`} />
                         </Td>
                         <Td className="text-right">
-                          <Link to="/" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[oklch(0.62_0.22_255)] to-[oklch(0.55_0.20_245)] text-xs font-semibold text-white shadow-md hover:shadow-lg hover:-translate-y-px transition">
+                          <Link to="/account/$id" params={{ id: a.name }} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[oklch(0.62_0.22_255)] to-[oklch(0.55_0.20_245)] text-xs font-semibold text-white shadow-md hover:shadow-lg hover:-translate-y-px transition">
                             View <ChevronRight className="size-3.5" />
                           </Link>
                         </Td>
