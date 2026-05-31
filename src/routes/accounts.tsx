@@ -187,7 +187,12 @@ function Accounts() {
                               {p.total} <span className="text-sm font-normal text-white/75">accounts</span>
                             </div>
                           </div>
-                          <Cloud className="size-5 text-white/85" />
+                          <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-white/10 backdrop-blur border border-white/15">
+                            <span className={`size-1.5 rounded-full ${p.health >= 95 ? "bg-[var(--success)]" : p.health > 0 ? "bg-[var(--warning)]" : "bg-white/40"} animate-pulse-dot`} />
+                            <span className="text-[10px] font-medium tracking-wider text-white/90 uppercase">
+                              {p.health >= 95 ? "Healthy" : p.health > 0 ? "Watch" : "Idle"}
+                            </span>
+                          </div>
                         </div>
 
                         <div className="mt-3 grid grid-cols-3 gap-2">
@@ -196,6 +201,35 @@ function Accounts() {
                           <Stat label="Master" value={p.sub ? `${p.sub.master}/${p.sub.linked}` : "—"} />
                         </div>
 
+                        <div className="mt-3 rounded-lg bg-white/10 backdrop-blur border border-white/15 p-2.5">
+                          <div className="flex items-center justify-between mb-1.5">
+                            <span className="text-[10px] uppercase tracking-wider text-white/75">7d activity</span>
+                            <span className="text-[10px] tabular-nums text-white/90">
+                              {p.total > 0 ? `${(p.total * 1.4).toFixed(1)}k events` : "no data"}
+                            </span>
+                          </div>
+                          <div className="flex items-end gap-[3px] h-10">
+                            {(p.total > 0
+                              ? [55, 72, 48, 86, 64, 92, 78]
+                              : [8, 6, 10, 7, 9, 6, 8]
+                            ).map((h, i) => (
+                              <div key={i} className="flex-1 rounded-sm bg-gradient-to-t from-white/30 to-white/90" style={{ height: `${h}%` }} />
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="mt-auto pt-3 flex items-center justify-between gap-2">
+                          <div className="flex gap-1.5 flex-wrap">
+                            {["Compute", "Storage", "IAM"].map((s) => (
+                              <span key={s} className="text-[10px] px-2 py-0.5 rounded-full bg-white/15 border border-white/20 text-white backdrop-blur">
+                                {s}
+                              </span>
+                            ))}
+                          </div>
+                          <button className="text-[11px] font-medium text-white inline-flex items-center gap-1 hover:gap-1.5 transition-all">
+                            Manage <ChevronRight className="size-3" />
+                          </button>
+                        </div>
                       </div>
                     )}
                   </button>
